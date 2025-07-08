@@ -1,7 +1,12 @@
 const { default: axios } = require("axios");
+if (!process.env.NEXT_PUBLIC_API_URL) {
+  throw new Error('NEXT_PUBLIC_API_URL is not defined');
+}
+
 const axiosClient = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL + '/api'
+  baseURL: `${process.env.NEXT_PUBLIC_API_URL}/api`
 });
+
 
 const getCategory = () => axiosClient.get('/categories?populate=*');
 
