@@ -59,7 +59,7 @@ function ProductItemDetails({ product }) {
 
     return (
         <div className='grid grid-cols-1 sm:grid-cols-2 bg-white text-black'>
-            <Image src={process.env.NEXT_PUBLIC_BACKEND_BASE_URL +
+            <Image src={
                 (product.image?.[0].formats?.thumbnail?.url || product.image?.[0]?.url || '')}
                 width={300}
                 height={300}

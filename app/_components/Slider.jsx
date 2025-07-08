@@ -15,7 +15,7 @@ function Slider({ sliderList }) {
         <CarouselContent>
           {sliderList.map((item, index) => {
             const imageUrl =
-              process.env.NEXT_PUBLIC_BACKEND_BASE_URL +
+             
               (
                 item.image?.formats?.small?.url ||  // Use "small" version if available
                 item.image?.url ||                  // Fallback to original image

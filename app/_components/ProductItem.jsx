@@ -16,7 +16,7 @@ function ProductItem({ product }) {
         <div className='p-2 md:p-6 gap-3 mt-6 border rounded-lg  flex flex-col items-center justify-center
         hover:scale-105 hover:shadow-lg transition-all ease-in-out cursor-pointer '>
 
-            <Image src={process.env.NEXT_PUBLIC_BACKEND_BASE_URL +
+            <Image src={
                 (product.image?.[0].formats?.thumbnail?.url || product.image?.[0]?.url || '')}
                 width={200}
                 height={200}

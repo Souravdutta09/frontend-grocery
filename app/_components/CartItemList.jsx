@@ -14,11 +14,7 @@ function CartItemList({ cartItemList, onDeleteCart }) {
           <div key={item.id} className='flex justify-between items-center mb-5 '>
             <div className='flex gap-5  items-center  ' >
               <Image
-                src={
-                  item.image
-                    ? `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}${item.image}`
-                    : "/fallback.png" // your public fallback image
-                }
+               src={item.image || "/fallback.png"}
                 width={80}
                 height={80}
                 alt={item.name || "Product"}

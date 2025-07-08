@@ -148,7 +148,10 @@ function Navbar() {
                                 <DropdownMenuItem key={category.id || index}
                                     className="flex gap-4 items-center">
                                     <Image
-                                        src={process.env.NEXT_PUBLIC_BACKEND_BASE_URL + category.icon.url}
+                                        src={category.icon?.formats?.thumbnail?.url ||
+                                            category.icon?.formats?.small?.url ||
+                                            category.icon?.url ||
+                                            "/fallback.png"}
                                         alt={category?.name}
                                         width={30}
                                         height={30}
@@ -193,10 +196,10 @@ function Navbar() {
                         <SheetClose asChild >
                             <div className='absolute flex flex-col items-center gap-3 bottom-6 w-full px-4'>
                                 <h2 className='text-lg font-bold flex justify-between w-full'>Subtotal <span>${subTotal}</span></h2>
-                                <Button className='w-full' 
-                                disabled={subTotal==0}
-                                onClick={()=>router.push(jwt  ?'/checkout':'/sign-in')}
-                                 >CheckOut</Button> {/* Optional width control */}
+                                <Button className='w-full'
+                                    disabled={subTotal == 0}
+                                    onClick={() => router.push(jwt ? '/checkout' : '/sign-in')}
+                                >CheckOut</Button> {/* Optional width control */}
                             </div>
 
                         </SheetClose>
@@ -216,7 +219,7 @@ function Navbar() {
                             <DropdownMenuLabel>My Account</DropdownMenuLabel>
                             <DropdownMenuSeparator />
                             <DropdownMenuItem>Profile</DropdownMenuItem>
-                            <DropdownMenuItem onClick={()=>router.push('/my-orders')}>
+                            <DropdownMenuItem onClick={() => router.push('/my-orders')}>
                                 My Orders</DropdownMenuItem>
                             <DropdownMenuItem onClick={() => onSignOut()}>SignOut</DropdownMenuItem>
                         </DropdownMenuContent>

@@ -14,14 +14,17 @@ async function TopCategoryList({ catlist, selectedCategory }) {
             w-[150px] min-w-[100px]
         ${selectedCategory == category.name && 'bg-red-400'}
     `}>
-                        <Image src={process.env.NEXT_PUBLIC_BACKEND_BASE_URL + category.icon.url}
+                        <Image src={category.icon?.formats?.thumbnail?.url ||
+                            category.icon?.formats?.small?.url ||
+                            category.icon?.url ||
+                            "/fallback.png"}
                             width={50}
                             height={50}
                             alt='list of cat'
                             unoptimized
                             className='group-hover:scale-125  transition-all ease-in-out w-[60%] '
                         />
-                        <h2 className={`group-hover:text-yellow-900 ${selectedCategory === category.name &&'text-white'}`}>
+                        <h2 className={`group-hover:text-yellow-900 ${selectedCategory === category.name && 'text-white'}`}>
                             {category.name}
                         </h2>
 
